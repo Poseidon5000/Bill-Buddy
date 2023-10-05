@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Friendslist from "./components/Friendslist";
+import Addfriend from "./components/Addfriend";
+import Button from "./components/Button";
+import Splitbill from "./components/Splitbill";
+import Logo from "./components/Logo";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+
+function App(){
+  const [addFriendForm, setAddFriendForm] = useState(false)
+
+  function handleShowAddFriend(){
+    setAddFriendForm(console.log("hello"))
+  }
+
+  return(
+    <>
+    <Logo/>
+    <div className="app">
+   
+      <div className="sidebar">
+        <Friendslist />
+        {addFriendForm &&   <Addfriend />}
+      
+        <Button onClick ={handleShowAddFriend} >Add friend</Button>
+    
+      </div>
+
+      <Splitbill />
     </div>
-  );
+    </>
+  
+  )
 }
+
 
 export default App;
