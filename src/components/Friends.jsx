@@ -1,10 +1,10 @@
 import React from "react";
 import Button from "./Button";
 
-const Friends = ({ initialFriends }) => {
+const Friends = ({ friend}) => {
   return (
     <div>
-      {initialFriends.map((friend) => (
+
         <li key={friend.id}>
           <img src={friend.image} alt={friend.name} />
           <h3>{friend.name}</h3>
@@ -33,7 +33,7 @@ const Friends = ({ initialFriends }) => {
             Select
           </Button>
         </li>
-      ))}
+      
     </div>
   );
 };

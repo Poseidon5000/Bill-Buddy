@@ -30,8 +30,8 @@ body {
 .app {
   min-height: 66vh;
   display: grid;
-  grid-template-columns: 34rem 44rem;
-  column-gap: 4rem;
+  grid-template-columns: 50rem 60rem;
+  column-gap: 8rem;
   align-items: start;
 }
 
@@ -45,7 +45,8 @@ h1 {
   font-weight: 400;
   word-spacing: 30px;
   letter-spacing: -5px;
-  padding: 2.4rem 0;
+  margin-bottom: 3rem;
+
 }
 
 .button {
@@ -136,6 +137,7 @@ form {
   grid-template-columns: 1fr 1.5fr;
   margin-bottom: 1.6rem;
   padding: 1.2rem;
+  margin-top: 3rem;
 }
 .form-split-bill {
   grid-template-columns: 1fr 12rem;
