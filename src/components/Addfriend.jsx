@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Button from './Button'
 
-const Addfriend = ({friends, setFriends}) => {
+const Addfriend = ({friends, setFriends, setAddFriendForm}) => {
 const [name, setName] = useState("")
 const [imageUrl, setImageUrl] = useState("")
 
@@ -11,7 +11,7 @@ const image = `https://i.pravatar.cc/48?u=${id}`
     function handleSubmit(e){
         e.preventDefault()
     
-
+if(!name || !imageUrl) return alert ("Cannot add empty field")
         const friendData = {
             name,
             image,
@@ -24,6 +24,7 @@ const image = `https://i.pravatar.cc/48?u=${id}`
         setFriends([...friends, friendData])
         setName("")
         setImageUrl("")
+        setAddFriendForm(false)
     }
 
     function handleNameChange(e){

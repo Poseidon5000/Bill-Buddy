@@ -1,23 +1,25 @@
 import React from "react";
 import Button from "./Button";
 
-const Friends = ({ friend}) => {
+const Friends = ({ friend, handleSelectedFriend, selectedFriends, handleCloseSelected}) => {
+  const isSelected = selectedFriends?.id === friend?.id
+
   return (
     <div>
 
-        <li key={friend.id}>
+        <li className={isSelected ? "selected" : ""}>
           <img src={friend.image} alt={friend.name} />
           <h3>{friend.name}</h3>
 
           {friend.balance < 0 && (
-            <p className="red">
-             
+            <p className={friend.balance < 0 ? "red" : "green"}>
+          
               You owe {friend.name} ${Math.abs(friend.balance)}
             </p>
           )}
 
           {friend.balance > 0 && (
-            <p className="green">
+            <p className={friend.balance < 0 ? "red" : "green"}>
               
             {friend.name} owes you ${friend.balance}
             </p>
@@ -29,9 +31,12 @@ const Friends = ({ friend}) => {
             </p>
           )}
 
-          <Button>
-            Select
-          </Button>
+          
+          {
+            isSelected ? <Button onClick= {handleCloseSelected} >Close</Button> : 
+            <Button onClick={()=> handleSelectedFriend(friend)}>Select</Button>
+          }
+            
         </li>
       
     </div>
